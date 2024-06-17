@@ -1,0 +1,17 @@
+# Here changes made by the playbook are verified independently of the playbook itself.
+# Ideally th playbook should be written to verify the changes it makes, but this is a good
+# practice to ensure that the changes are made as expected outside of the playbook.
+---
+- name: Verify the package is installed
+  hosts: molecule
+  gather_facts: false
+  tasks:
+    - name: Collect package facts
+      ansible.builtin.package_facts:
+
+    - name: Ensure package is installed
+      ansible.builtin.assert:
+        that:
+          - "'httpd' in ansible_facts.packages"
+        fail_msg: "Package httpd is not installed"
+        success_msg: "Package httpd is installed"

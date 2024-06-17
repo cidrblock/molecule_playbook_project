@@ -1,0 +1,5 @@
+# Here we are running the same playbook that we would run against a production host again
+# to ensure that it is idempotent. This is a good practice to ensure that the playbook
+# can be run multiple times without causing any issues.
+---
+- import_playbook: "{{ lookup('env', 'ANSIBLE_PROJECT_ROOT') }}/site.yml"

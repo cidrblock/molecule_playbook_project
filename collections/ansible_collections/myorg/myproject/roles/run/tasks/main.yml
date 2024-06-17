@@ -1,0 +1,6 @@
+---
+- name: Ensure package is installed
+  ansible.builtin.package:
+    name: httpd
+    state: present
+  register: result

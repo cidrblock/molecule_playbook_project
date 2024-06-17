@@ -1,0 +1,10 @@
+# Here the prepare step is being used to update the packages cache within the container
+# This should probably be handled by the actual playbook that is being tested, but it is
+# included here for demonstration purposes.
+---
+- hosts: molecule
+  gather_facts: false
+  tasks:
+    - name: Update package cache
+      ansible.builtin.package:
+        update_cache: true

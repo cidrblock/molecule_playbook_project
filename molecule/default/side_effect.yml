@@ -1,0 +1,10 @@
+# This file is used to test the side effects or unexpected changes that may occur when running the playbook project.
+# For instance, a network disruption or bandwidth restriction could be imposed on the container
+# prior to running the playbook project to see how it behaves under those conditions.
+# This is a good practice to ensure that the playbook project can handle unexpected changes in the environment.
+---
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: No operations
+      ansible.builtin.meta: noop

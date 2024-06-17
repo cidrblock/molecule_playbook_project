@@ -1,0 +1,8 @@
+---
+- name: Example playbook
+  hosts: target_hosts
+  gather_facts: true
+  tasks:
+    - name: Run the role
+      import_role:
+        name: myorg.myproject.run

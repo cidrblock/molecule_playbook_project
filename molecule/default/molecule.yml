@@ -1,0 +1,19 @@
+# This file is used to configure molecule for testing the playbook project
+# We are demonstrating the use of ansible-dev-environment (ade) to install
+# the collections required for testing the playbook.
+
+dependency:
+  name: shell
+  command: |
+    ade install -r ./collections/requirements-test.yml && \
+    ade install -r ./collections/requirements.yml
+
+platforms:
+  - name: molecule-fedora
+
+driver:
+  options:
+    managed: false
+    login_cmd_template: "podman exec -ti {instance} bash"
+    ansible_connection_options:
+      ansible_connection: podman

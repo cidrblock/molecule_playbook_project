@@ -1,0 +1,34 @@
+# Here we will start a fedora container and add it to the molecule inventory.
+# the molecule inventory include a group entry for `target_hosts` which includes
+# all the molecule hosts. This is necessary since our playbook targets `target_hosts`
+
+- name: Create
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Create a container
+      containers.podman.podman_container:
+        name: molecule-fedora
+        hostname: molecule-fedora
+        image: fedora:40
+        state: started
+        command: sleep infinity
+      register: result
+
+    - name: Write molecule inventory
+      ansible.builtin.copy:
+        content: "{{ molecule_inventory | to_yaml }}"
+        dest: "{{ molecule_ephemeral_directory }}/inventory/molecule_inventory.yml"
+        mode: "0600"
+      vars:
+        molecule_inventory:
+          all:
+            children:
+              molecule:
+                hosts:
+                  molecule-fedora:
+                    ansible_connection: containers.podman.podman
+          target_hosts:
+            children:
+              molecule:

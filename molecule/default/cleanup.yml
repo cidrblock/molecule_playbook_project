@@ -1,0 +1,11 @@
+# Although not necessary because we are using an ephemeral container
+# for the tests, we will remove the httpd package from the container
+# as an example of how to use the cleanup step.
+---
+- hosts: molecule
+  gather_facts: false
+  tasks:
+    - name: Remove the httpd package
+      ansible.builtin.package:
+        name: httpd
+        state: absent

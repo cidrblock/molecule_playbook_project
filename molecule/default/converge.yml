@@ -1,0 +1,4 @@
+# Here we make changes to the container that was created in the create.yml file.
+# Our project playbook should run against the fedora container as if it were a production host.
+---
+- import_playbook: "{{ lookup('env', 'ANSIBLE_PROJECT_ROOT') }}/site.yml"

@@ -1,7 +1,4 @@
 ```
-ansible-creator init --project ansible-project --scm-org myorg --scm-project myproject --init-path molecule_playbook_project
-cd molecule_playbook_project
-
 # Set some environment variables to keep everything local to our project
 export ANSIBLE_PROJECT_ROOT=$PWD
 export ANSIBLE_HOME=$PWD/.cache/.ansible

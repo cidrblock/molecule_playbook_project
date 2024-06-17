@@ -1,0 +1,5 @@
+export ANSIBLE_PROJECT_ROOT=$PWD
+export ANSIBLE_HOME=$PWD/.cache/.ansible
+export ANSIBLE_REMOTE_TMP=$PWD/.cache/.ansible/tmp
+export ANSIBLE_COLLECTIONS_PATH=$PWD/collections
+export XDG_CACHE_HOME=$PWD/.cache

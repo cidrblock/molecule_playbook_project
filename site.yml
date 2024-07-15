@@ -4,5 +4,5 @@
   gather_facts: true
   tasks:
     - name: Run the role
-      import_role:
+      ansible.builtin.import_role:
         name: myorg.myproject.run

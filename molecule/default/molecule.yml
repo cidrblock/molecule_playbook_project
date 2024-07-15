@@ -5,8 +5,8 @@
 dependency:
   name: shell
   command: |
-    ade install -r ./collections/requirements-test.yml && \
-    ade install -r ./collections/requirements.yml
+    ansible-galaxy collection install -r ./collections/requirements-test.yml && \
+    ansible-galaxy collection install -r ./collections/requirements.yml
 
 platforms:
   - name: molecule-fedora

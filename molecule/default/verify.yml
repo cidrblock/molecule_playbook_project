@@ -13,5 +13,5 @@
       ansible.builtin.assert:
         that:
           - "'httpd' in ansible_facts.packages"
-        fail_msg: "Package httpd is not installed"
-        success_msg: "Package httpd is installed"
+        fail_msg: Package httpd is not installed
+        success_msg: Package httpd is installed

@@ -1,3 +1,4 @@
+---
 # Here we will start a fedora container and add it to the molecule inventory.
 # the molecule inventory include a group entry for `target_hosts` which includes
 # all the molecule hosts. This is necessary since our playbook targets `target_hosts`
